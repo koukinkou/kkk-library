@@ -2,7 +2,7 @@
 
 ##### 重复使用已安装好系统的vdi
 
-备注：当路径中有空格时，要对路径加上双引号
+**备注：当路径中有空格时，要对路径加上双引号**
 
 方法1：
 
@@ -33,20 +33,24 @@ D:\Program Files\Oracle\VirtualBox>VBoxManage internalcommands sethduuid "E:\Vir
 结果如下：
 UUID changed to: 3b5f507c-dda7-409c-a2ef-ee075435558d
 
+# 为安装vm 增强功能的一些准备
 
-# 卸载 centos 自带libreoffice
-- yum erase libreoffice\*
+```sh
+ $ yum erase libreoffice\*											# 卸载 centos 自带libreoffice
+ $ yum update														# centos 更新系统内核
+ $ yum install kernel-devel gcc 									# 安装 kernel-devel gcc
+ $ ln -s /usr/src/kernels/3.10.0-327.22.2.el7.x86_64 /usr/src/linux	# 注意：3.10.0-327.22.2.el7.x86_64是内核的版本号，需要根据自己情况输入。
+```
 
-# centos 更新系统内核
-- yum update
 
-# 安装virtualbox增强功能
-- yum install kernel-devel gcc 
+# 防火墙
+centos 7.x 自带firewall防火墙
 
-##### 注意：3.10.0-327.22.2.el7.x86_64是内核的版本号，需要根据自己情况输入。
-- ln -s /usr/src/kernels/3.10.0-327.22.2.el7.x86_64 /usr/src/linux
-
-# 防火墙开放端口
-- firewall-cmd [--permanent] --add-port=27017/tcp （如果需要永久开放加上--permanent参数）
-
+```sh
+$ systemctl stop firewalld.service 					#停止firewall
+$ systemctl disable firewalld.service 				#禁止firewall开机启动
+$ systemctl restart iptables.service 				#重启生效
+$ systemctl enable iptables.service 				#设置开机启动
+$ firewall-cmd [--permanent] --add-port=27017/tcp 	#（如果需要永久开放加上--permanent参数）
+```
 
