@@ -36,9 +36,9 @@ UUID changed to: 3b5f507c-dda7-409c-a2ef-ee075435558d
 # 为安装vm 增强功能的一些准备
 
 ```sh
- $ yum erase libreoffice\*											# 卸载 centos 自带libreoffice
- $ yum update														# centos 更新系统内核
- $ yum install kernel-devel gcc 									# 安装 kernel-devel gcc
+ $ yum erase libreoffice\*
+ $ yum update
+ $ yum install kernel-devel gcc 			
  $ ln -s /usr/src/kernels/3.10.0-327.22.2.el7.x86_64 /usr/src/linux	# 注意：3.10.0-327.22.2.el7.x86_64是内核的版本号，需要根据自己情况输入。
 ```
 
