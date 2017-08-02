@@ -47,10 +47,8 @@ UUID changed to: 3b5f507c-dda7-409c-a2ef-ee075435558d
 centos 7.x 自带firewall防火墙
 
 ```sh
-$ systemctl stop firewalld.service 					#停止firewall
-$ systemctl disable firewalld.service 				#禁止firewall开机启动
-$ systemctl restart iptables.service 				#重启生效
-$ systemctl enable iptables.service 				#设置开机启动
+$ systemctl stop firewalld.service 					 
+$ systemctl disable firewalld.service 				 
 $ firewall-cmd [--permanent] --add-port=27017/tcp 	#（如果需要永久开放加上--permanent参数）
 ```
 
