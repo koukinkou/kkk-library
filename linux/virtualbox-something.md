@@ -36,9 +36,9 @@ UUID changed to: 3b5f507c-dda7-409c-a2ef-ee075435558d
 # 为安装vm 增强功能的一些准备
 
 ```sh
- $ yum erase libreoffice\*											# 卸载 centos 自带libreoffice
- $ yum update														# centos 更新系统内核
- $ yum install kernel-devel gcc 									# 安装 kernel-devel gcc
+ $ yum erase libreoffice\*
+ $ yum update
+ $ yum install kernel-devel gcc 			
  $ ln -s /usr/src/kernels/3.10.0-327.22.2.el7.x86_64 /usr/src/linux	# 注意：3.10.0-327.22.2.el7.x86_64是内核的版本号，需要根据自己情况输入。
 ```
 
@@ -47,10 +47,8 @@ UUID changed to: 3b5f507c-dda7-409c-a2ef-ee075435558d
 centos 7.x 自带firewall防火墙
 
 ```sh
-$ systemctl stop firewalld.service 					#停止firewall
-$ systemctl disable firewalld.service 				#禁止firewall开机启动
-$ systemctl restart iptables.service 				#重启生效
-$ systemctl enable iptables.service 				#设置开机启动
+$ systemctl stop firewalld.service 					 
+$ systemctl disable firewalld.service 				 
 $ firewall-cmd [--permanent] --add-port=27017/tcp 	#（如果需要永久开放加上--permanent参数）
 ```
 
