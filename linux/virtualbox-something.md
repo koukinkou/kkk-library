@@ -52,3 +52,25 @@ $ systemctl disable firewalld.service
 $ firewall-cmd [--permanent] --add-port=27017/tcp 	#（如果需要永久开放加上--permanent参数）
 ```
 
+# 更新默认源
+- 首先备份系统自带yum源配置文件/etc/yum.repos.d/CentOS-Base.repo
+- 进入yum源配置文件所在的文件夹
+- 下载163的yum源配置文件到上面那个文件夹内
+- 运行yum makecache生成缓存
+- 这时候再更新系统就会看到以下mirrors.163.com信息
+
+```sh
+$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+$ cd /etc/yum.repos.d/
+$ wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
+$ yum makecache
+$ yum -y update
+
+已加载插件：fastestmirror, refresh-packagekit, security
+设置更新进程
+Loading mirror speeds from cached hostfile
+* base: mirrors.163.com
+* extras: mirrors.163.com
+* updates: mirrors.163.com
+```
+
