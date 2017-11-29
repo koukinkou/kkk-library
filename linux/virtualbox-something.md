@@ -56,6 +56,7 @@ Loading mirror speeds from cached hostfile
 ```
 
 # 为安装vm 增强功能的一些准备
+安装增强功能前  需要重启  因为内核已更新
 
 ```sh
  $ yum erase libreoffice\*
