@@ -67,16 +67,19 @@ Loading mirror speeds from cached hostfile
 
 # 虚拟机要能访问网络 开机启动网卡
 
+- CentOS7 默认使用ip查看IP地址
+- 重启网卡命令: service network restart
+- ip addr 查看ip信息
+- 配置文件位置: /etc/sysconfig/network-scripts/
+- 文件名: ifcfg-{网卡名}
+- 需要修改的配置项说明:
+
 ```sh
-CentOS7 默认使用ip查看IP地址
-配置文件位置: /etc/sysconfig/network-scripts/
-文件名: ifcfg-{网卡名}
-需要修改的配置项说明:
 BOOTPROTO=dhcp #自动获取ip
 ONBOOT=yes #开机启动网卡
-重启网卡命令: service network restart
-ip addr 查看ip信息
 ```
+
+
 
 # 防火墙
 centos 7.x 自带firewall防火墙
