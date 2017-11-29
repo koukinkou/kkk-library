@@ -65,6 +65,18 @@ Loading mirror speeds from cached hostfile
  $ ln -s /usr/src/kernels/3.10.0-327.22.2.el7.x86_64 /usr/src/linux	# 注意：3.10.0-327.22.2.el7.x86_64是内核的版本号，需要根据自己情况输入。
 ```
 
+# 虚拟机要能访问网络 开机启动网卡
+
+```sh
+CentOS7 默认使用ip查看IP地址
+配置文件位置: /etc/sysconfig/network-scripts/
+文件名: ifcfg-{网卡名}
+需要修改的配置项说明:
+BOOTPROTO=dhcp #自动获取ip
+ONBOOT=yes #开机启动网卡
+重启网卡命令: service network restart
+ip addr 查看ip信息
+```
 
 # 防火墙
 centos 7.x 自带firewall防火墙
