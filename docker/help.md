@@ -32,6 +32,7 @@ echo $JAVA_HOME
 mkdir jenkins
 chmod 777 jenkins
 docker pull jenkins/jenkins:lts
+
 ```
 
 
