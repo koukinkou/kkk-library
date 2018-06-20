@@ -1,3 +1,25 @@
+##docker 准备
+- ubuntu server 1804 固定ip
+
+```sh
+vim /etc/netplan/50-cloud-init.yaml
+
+network:
+    ethernets:
+        enp0s3:
+            addresses: [192.168.0.62/24]
+            gateway4: 192.168.0.1
+            nameservers:
+                addresses: [114.114.114.114,8.8.8.8]
+            optional: true
+    version: 2
+    
+netplan apply
+
+```
+
+
+
 ##docker 记录 参数 命令
 - 先记录简单的 以后熟悉后增加更丰富的内容
 - 感觉不用chmod也行，用这个参数试试 --privileged=true (or -privileged) Docker将拥有访问主机所有设备的权限
