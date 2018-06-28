@@ -1,4 +1,10 @@
 ##docker 准备
+- ubuntu 设置 root 密码
+
+```
+sudo passwd root
+```
+
 - ubuntu server 1804 固定ip
 
 ```sh
