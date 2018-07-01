@@ -30,5 +30,7 @@ plugins=(
 . /usr/share/autojump/autojump.sh
 
 source ~/.zshrc
+
+rm ~/.zcompdump* #解决vim tab报错
 ```
 
