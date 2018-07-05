@@ -17,11 +17,12 @@ vim ~/.zshrc
 
 
 ```
+apt-get install autojump
+
 vim ~/.zshrc
 
 plugins=(
   git
-  autojump 
   zsh-autosuggestions
   zsh-syntax-highlighting
   extract
