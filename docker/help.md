@@ -1,30 +1,62 @@
 ##docker 准备
-- ubuntu 设置 root 密码
+
+## docker 安装
+- 由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。
 
 ```
-sudo passwd root
+$ sudo apt-get update
+
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
 ```
-
-- ubuntu server 1804 固定ip
-
-```sh
-vim /etc/netplan/50-cloud-init.yaml
-
-network:
-    ethernets:
-        enp0s3:
-            addresses: [192.168.0.62/24]
-            gateway4: 192.168.0.1
-            nameservers:
-                addresses: [114.114.114.114,8.8.8.8]
-            optional: true
-    version: 2
-    
-netplan apply
+- 鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。
 
 ```
+$ curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
 
+# 官方源
+# $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+- 然后，我们需要向 source.list 中添加 Docker 软件源
 
+```
+$ sudo add-apt-repository \
+    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+
+# 官方源
+# $ sudo add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#    $(lsb_release -cs) \
+#    stable"
+```
+- 安装 Docker CE 更新 apt 软件包缓存，并安装 docker-ce：
+
+```
+$ sudo apt-get update
+$ sudo apt-get install docker-ce
+```
+- 启动docker ce
+
+```
+$ sudo systemctl enable docker
+$ sudo systemctl start docker
+```
+- 镜像加速 请在 /etc/docker/daemon.json 中写入如下内容（如果文件不存在请新建该文件）之后重新启动服务。
+
+```
+{
+  "registry-mirrors": [
+    "https://registry.docker-cn.com"
+  ]
+}
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart docker
+```
 
 ##docker 记录 参数 命令
 - 先记录简单的 以后熟悉后增加更丰富的内容
@@ -41,19 +73,6 @@ netplan apply
 - docker stop [containId] 停容器 默认10秒 可以使用 --time=20 设置停容器最大时间
 - docker rm [containId] 删容器
 
-- apt-get install procps 使用ps -ef|grep tomcat 需要单独安装
-
-##ubuntu 安装 oracle－jdk 
-```sh
-add-apt-repository ppa:webupd8team/java
-apt-get update
-apt-get install oracle-java8-installer
-java -version
-apt-get install oracle-java8-set-default
-cat /etc/profile.d/jdk.sh
-source /etc/profile
-echo $JAVA_HOME
-```
 
 ##docker jenkins 
 ```sh
