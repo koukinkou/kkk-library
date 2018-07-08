@@ -14,9 +14,9 @@ vim ~/.zshrc
 ```
 设置主题并生效 ZSH_THEME='ys'
 安装插件 自定义插件安装目录 .oh-my-zsh/custom/plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-git clone https://github.com/zsh-users/zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-autosuggestions
+- git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+- git clone https://github.com/zsh-users/zsh-history-substring-search
+- git clone https://github.com/zsh-users/zsh-autosuggestions
 
 ```
 apt-get install autojump
