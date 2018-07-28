@@ -1,4 +1,4 @@
-##zsh 安装
+##zsh 安装 ubuntu
 ```
 apt install zsh
 chsh -s $(which zsh)
@@ -38,3 +38,15 @@ source ~/.zshrc
 rm ~/.zcompdump* #解决vim tab报错
 ```
 
+##zsh 安装 centos
+```
+yum install -y zsh
+chsh -s /bin/zsh
+yum install -y git
+
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+source ~/.zshrc
+
+#同上
+```
