@@ -60,8 +60,8 @@ $ sudo systemctl restart docker
 
 ##docker 记录 参数 命令
 - 先记录简单的 以后熟悉后增加更丰富的内容
-- 感觉不用chmod也行，用这个参数试试 --privileged=true (or -privileged) Docker将拥有访问主机所有设备的权限
-- --privileged=true (or -privileged) Docker将拥有访问主机所有设备的权限
+
+- --privileged=true (or -privileged) Docker将拥有访问主机所有设备的权限 该参数慎用
 - -p 设置端口
 - -d 守护进程
 - -v 挂载目录
@@ -87,6 +87,7 @@ docker pull jenkins/jenkins:lts
 - 挂载的意义就是目录同步，容器外什么样，容器内对应的目录也就是什么样。
 - 挂载日志目录后，容器内的日志可以在重启外查看，配合日志监控等方式更佳
 - 挂载应用目录后，可以拷贝war到应用目录下，重启容器后生效，也可以配置动态加载等
+- --privileged=true参数慎用 还是chmod目录的方式安全些
 
 ```sh
 mkdir -p tomcat/webapps tomcat/logs
