@@ -37,4 +37,11 @@ source /etc/profile
 echo $JAVA_HOME
 ```
 
+##ubuntu 安装 zip
 
+```
+apt-get install zip
+
+zip -r -q xxx.zip /opt/xxx
+```
+ 

@@ -94,3 +94,13 @@ mkdir -p tomcat/webapps tomcat/logs
 docker pull tomcat:8.5.31
 docker run --name docker0tomcat --privileged=true -p 8080:8080 -v $PWD/tomcat/logs:/usr/local/tomcat/logs -v $PWD/tomcat/webapps:/usr/local/tomcat/webapps -d tomcat:8.5.31
 ```
+
+##docker mysql 
+```sh
+mkdir /opt/mysql
+cd /opt/mysql
+mkdir conf data logs
+docker pull mysql:5.6
+
+docker run -p 32900:3306 --name uaa-mysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -d mysql:5.6
+```
