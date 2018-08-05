@@ -6,4 +6,9 @@ docker container run --name registry-app -e JHIPSTER.SECURITY.AUTHENTICATION.JWT
 docker container run --name jhipster -v /opt/jhipster:/home/jhipster/app -v /opt/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster:v5.1.0
 
 docker exec -it jhipster bash
+
+
+mvn clean -Pdev package -DskipTests
+nohup ./target/uaa-0.0.1-SNAPSHOT.war &
+tail -f nohup.out
 ```
