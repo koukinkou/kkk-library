@@ -55,6 +55,20 @@ Loading mirror speeds from cached hostfile
 * updates: mirrors.aliyun.com
 ```
 
+- 备份原始的更新源
+- 下载并设置更新源为aliyun
+- 下载并设置EPEL源,此源中包含更多的软件
+- 清理yum缓存
+- 创建yum缓存
+
+```
+cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-7.repo
+yum clean all
+yum makecache
+```
+
 # 为安装vm 增强功能的一些准备
 安装增强功能前  需要重启  因为内核已更新
 
