@@ -61,3 +61,4 @@ sudo cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 sudo apt install ntpdate
 sudo ntpdate cn.pool.ntp.org
 ```
+
