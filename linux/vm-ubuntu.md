@@ -26,6 +26,7 @@ netplan apply
 - apt-get install procps 使用ps -ef|grep tomcat 需要单独安装
 
 ##ubuntu 安装 oracle－jdk 
+
 ```sh
 add-apt-repository ppa:webupd8team/java
 apt-get update
@@ -39,9 +40,24 @@ echo $JAVA_HOME
 
 ##ubuntu 安装 zip
 
-```
+```sh
 apt-get install zip
 
 zip -r -q xxx.zip /opt/xxx
 ```
  
+ 
+#ubuntu 设置时区
+
+```sh
+tzselect
+Asia China Yes
+sudo cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+```
+
+##ubuntu 同步时间
+
+```sh
+sudo apt install ntpdate
+sudo ntpdate cn.pool.ntp.org
+```
