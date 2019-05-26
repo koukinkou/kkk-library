@@ -51,7 +51,7 @@ zip -r -q xxx.zip /opt/xxx
 
 ```sh
 tzselect
-Asia China Yes
+Asia China beijing Yes
 sudo cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 ```
 
