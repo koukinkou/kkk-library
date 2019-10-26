@@ -8,5 +8,5 @@
 
 ```sh
 docker pull rabbitmq:management
-docker run -d --hostname my-rabbit --name rabbit -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin rabbitmq:management
+docker run -d --hostname my-rabbit --name rabbit -v /etc/localtime:/etc/localtime:ro -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin rabbitmq:management
 ```

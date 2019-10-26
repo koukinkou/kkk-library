@@ -62,3 +62,9 @@ sudo apt install ntpdate
 sudo ntpdate cn.pool.ntp.org
 ```
 
+##使用代理会出现语言编码的问题
+- root 用户执行后重启
+```sh
+echo 'LANGUAGE="en_US.UTF-8"' >> /etc/default/locale
+echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
+```

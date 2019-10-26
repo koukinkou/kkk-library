@@ -10,6 +10,7 @@ $ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
+    gnupg-agent \
     software-properties-common
 ```
 - 鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。
@@ -35,10 +36,13 @@ $ sudo add-apt-repository \
 #    stable"
 ```
 - 安装 Docker CE 更新 apt 软件包缓存，并安装 docker-ce：
-
+- 将当前用户加入到docker组
 ```
 $ sudo apt-get update
-$ sudo apt-get install docker-ce
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
 ```
 - 启动docker ce
 

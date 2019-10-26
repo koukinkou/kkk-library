@@ -13,13 +13,15 @@ source ~/.zshrc
 vim ~/.zshrc
 ```
 设置主题并生效 ZSH_THEME='ys'
-安装插件 自定义插件安装目录 .oh-my-zsh/custom/plugins
+安装插件 自定义插件安装目录 .oh-my-zsh/plugins
 - git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 - git clone https://github.com/zsh-users/zsh-history-substring-search
 - git clone https://github.com/zsh-users/zsh-autosuggestions
+- git clone https://github.com/jhipster/jhipster-oh-my-zsh-plugin.git
+
+mv jhipster-oh-my-zsh-plugin jhipster
 
 ```
-apt-get install autojump
 
 vim ~/.zshrc
 
@@ -30,8 +32,8 @@ plugins=(
   zsh-syntax-highlighting
   extract
   docker
+  jhipster
 )
-. /usr/share/autojump/autojump.sh
 
 source ~/.zshrc
 
