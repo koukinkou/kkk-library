@@ -1,6 +1,6 @@
 ##docker 准备
-
-## docker 安装
+<del>
+## docker 安装 ubuntu 19.04 已改变
 - 由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。
 
 ```
@@ -46,6 +46,14 @@ $ sudo apt-get install docker-ce
 $ sudo systemctl enable docker
 $ sudo systemctl start docker
 ```
+</del>
+
+## docker 安装 ubuntu 19.04
+```
+sudo apt upgrade
+sudo apt install docker.io
+```
+
 - 镜像加速 请在 /etc/docker/daemon.json 中写入如下内容（如果文件不存在请新建该文件）之后重新启动服务。
 
 ```
@@ -57,6 +65,16 @@ $ sudo systemctl start docker
 $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```
+
+- 取消sudo，添加用户到docker用户组
+
+```sh
+sudo groupadd docker 
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
+reboot
+```
+
 
 ##docker 记录 参数 命令
 - 先记录简单的 以后熟悉后增加更丰富的内容
@@ -102,5 +120,5 @@ cd /opt/mysql
 mkdir conf data logs
 docker pull mysql:5.6
 
-docker run -p 32900:3306 --name uaa-mysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -d mysql:5.6
+docker run -p 3306:3306 --name docker0mysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -d mysql:5.6.42 --character-set-server=utf8 --collation-server=utf8_general_ci
 ```
