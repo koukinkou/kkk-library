@@ -1,6 +1,6 @@
 ##docker 准备
-<del>
-## docker 安装 ubuntu 19.04 已改变
+~
+# docker 安装 ubuntu 19.04 已改变
 - 由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。
 
 ```
@@ -46,7 +46,7 @@ $ sudo apt-get install docker-ce
 $ sudo systemctl enable docker
 $ sudo systemctl start docker
 ```
-</del>
+~
 
 ## docker 安装 ubuntu 19.04
 ```
