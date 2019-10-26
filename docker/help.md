@@ -10,6 +10,7 @@ $ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
+    gnupg-agent \
     software-properties-common
 ```
 - 鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。
@@ -44,6 +45,7 @@ $ sudo apt-get install docker-ce
 
 ```
 $ sudo systemctl enable docker
+$ sudo systemctl is-enabled docker
 $ sudo systemctl start docker
 ```
 
