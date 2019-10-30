@@ -19,7 +19,7 @@ $ sudo apt-get install \
 $ curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
 
 # 官方源
-# $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 - 然后，我们需要向 source.list 中添加 Docker 软件源
 
@@ -30,16 +30,16 @@ $ sudo add-apt-repository \
     stable"
 
 # 官方源
-# $ sudo add-apt-repository \
-#    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-#    $(lsb_release -cs) \
-#    stable"
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 ```
 - 安装 Docker CE 更新 apt 软件包缓存，并安装 docker-ce：
 
 ```
 $ sudo apt-get update
-$ sudo apt-get install docker-ce
+$ sudo apt-get install docker-ce docker-ce-cli docker-compose containerd.io
 ```
 - 启动docker ce
 
