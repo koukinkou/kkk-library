@@ -35,6 +35,8 @@ plugins=(
   jhipster
 )
 
+setopt nonomatch #增加识别通配符 比如* 在最后一行加入
+
 source ~/.zshrc
 
 rm ~/.zcompdump* #解决vim tab报错
