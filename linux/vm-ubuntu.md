@@ -68,3 +68,10 @@ sudo ntpdate cn.pool.ntp.org
 echo 'LANGUAGE="en_US.UTF-8"' >> /etc/default/locale
 echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
 ```
+
+##设置代理
+- 
+```sh
+alias setproxy='export http_proxy=socks4a://192.168.10.137:3213 && export https_proxy=$http_proxy'
+alias unsetproxy='unset http_proxy && unset https_proxy'
+```
