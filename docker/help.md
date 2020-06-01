@@ -122,5 +122,5 @@ cd /opt/mysql
 mkdir conf data logs
 docker pull mysql:5.6.42
 
-docker run -p 3306:3306 --name docker0mysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -d mysql:5.6.42 --character-set-server=utf8 --collation-server=utf8_general_ci
+docker run -p 3306:3306 --name docker0mysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -d mysql:5.6.42 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1
 ```
